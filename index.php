@@ -8,12 +8,12 @@ echo '<style>'.$css.'</style>';
 require_once('wc_pool.php');
 
 if(UPDATING) {
-  echo '<h1>Kids Only World Cup Pool</h1>';
+  echo '<h1>Qatar World Cup Pool</h1>';
   echo '<h3>HOLD YOUR HORSES!</h3>';
   echo '<p>I\'m doing some standings updates. ~Dave</p>';
 }
 else {
-  echo '<h1>Kids Only World Cup Pool</h1>';
+  echo '<h1>Qatar World Cup Pool</h1>';
   echo '<a name="top" href="#groups">See Brackets</a><br />';
   echo '<a href="#rules">See Rules & Prizes</a>';
   echo '<h4>Last Update: '.LAST_UPDATE.'</h4>';
