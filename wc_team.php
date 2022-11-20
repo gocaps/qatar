@@ -98,9 +98,10 @@ class WC_Team {
 	$wins = ($pts[0] > 0)? $pts[0]/3 : 0;
 	$total = $pts[0] + $pts[1] + $pts[2];
 	
-	$out = 'class="in"';
+	$team_class = strtolower($team_name);
+	$out = 'class="in '.$team_class.'"';
 	if($pts[3]) {
-	  $out = 'class="out"';
+	  $out = 'class="out '.$team_class.'"';
 	}
 	
 	echo '<tr><td '.$out.'>'.$team_name.'</td><td>'.$wins.'</td><td>'.$pts[1].'</td><td>'.$pts[2].'</td><td>'.$total.'</td></tr>';
@@ -114,15 +115,62 @@ class WC_Team {
 	$goals = ($pts[0] > 0)? $pts[0]/2 : 0;
 	$total = $pts[0] + $pts[1];
 
-	$out = 'class="in"';
+	$team_class = $this->getPlayerCountry($player_name);
+
+	$out = 'class="in '.$team_class.'"';
 	if($pts[2]) {
-	  $out = 'class="out"';
+	  $out = 'class="out '.$team_class.'"';
 	}
 	
 	echo '<tr><td '.$out.'>'.$player_name.'</td><td colspan="2">'.$goals.'</td><td>'.$pts[1].'</td><td>'.$total.'</td></tr>';
   
   }
 
+  private function getPlayerCountry($player) {
+
+  	$map = array();
+  	$map['MBAPPE'] = 'france';
+  	$map['MESSI'] = 'argentina';
+  	$map['KANE'] = 'england';
+  	$map['NEYMAR'] = 'brazil';
+  	$map['BENZEMA'] = 'france';
+  	$map['RONALDO'] = 'portugal';
+  	$map['LUKAKU'] = 'belgium';
+  	$map['LAUTARO'] = 'argentina';
+  	$map['DEPAY'] = 'holland';
+  	$map['VINICIUS JR'] = 'brazil';
+  	$map['RICHARLISON'] = 'brazil';
+  	$map['MORATA'] = 'spain';
+  	$map['HAVERTZ'] = 'germany';
+  	$map['LEWANDOWSKI'] = 'poland';
+  	$map['TORRES'] = 'spain';
+  	$map['STERLING'] = 'england';
+  	$map['GNABRY'] = 'germany';
+  	$map['GRIEZMANN'] = 'france';
+  	$map['ANSU FATI'] = 'spain';
+  	$map['FODEN'] = 'england';
+  	$map['DE BRUYNE'] = 'belgium';
+  	$map['NUNEZ'] = 'uruguay';
+  	$map['VLAHOVIC'] = 'serbia';
+  	$map['SANE'] = 'germany';
+  	$map['BALE'] = 'wales';
+  	$map['GAKPO'] = 'holland';
+  	$map['BERNARDO'] = 'spain';
+  	$map['MODRIC'] = 'croatia';
+  	$map['PULISIC'] = 'usa';
+  	$map['SON'] = 'korea';
+  	$map['HOJBJERG'] = 'denmark';
+  	$map['JIMENEZ'] = 'mexico';
+  	$map['AYEW'] = 'ghana';
+  	$map['KAMADA'] = 'japan';
+  	$map['DAVIES'] = 'canada';
+  	$map['LARIN'] = 'canada';
+  	$map['BUCHANON'] = 'canada';
+  	$map['CAVALLINI'] = 'canada';
+  	$map['DAVID'] = 'canada';
+
+  	return $map[$player];
+  }
+
 }
 
-?>
